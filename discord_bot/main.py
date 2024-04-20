@@ -1,11 +1,6 @@
-import os
+import settings
 import discord
 from discord.ext import commands
-from dotenv import load_dotenv
-
-load_dotenv()
-
-DISCORD_TOKEN = os.getenv("DISCORD_TOKEN")
 
 def main():
     intents = discord.Intents.default()
@@ -27,7 +22,7 @@ def main():
     async def ping(ctx):
         await ctx.send("pong")
 
-    bot.run(DISCORD_TOKEN)
+    bot.run(settings.DISCORD_TOKEN)
 
 if __name__ == "__main__":
     main()
