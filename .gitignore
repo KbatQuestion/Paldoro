@@ -1,4 +1,12 @@
-.env
-.venv
+# VSCode
 .vscode
+
+# Environment Variables
+.env
+
+# Python
+.venv
 discord_bot/__pycache__
+
+# Nodejs
+node_modules
