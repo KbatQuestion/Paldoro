@@ -3,6 +3,18 @@ require("dotenv").config();
 const fs = require("node:fs");
 const path = require("node:path");
 const { Client, Collection, Events, GatewayIntentBits } = require("discord.js");
+const PocketBase = require("pocketbase/cjs");
+
+const pb = new PocketBase(process.env.POCKETBASE_ADDRESS);
+
+const authData = pb.admins.authWithPassword(
+  process.env.PB_ADMIN_EMAIL,
+  process.env.PB_ADMIN_PASSWORD
+);
+
+authData.then(() =>
+  console.log(`Logged into Pocketbase: ${pb.authStore.isValid}`)
+);
 
 const client = new Client({
   intents: [GatewayIntentBits.Guilds],
@@ -34,7 +46,9 @@ for (const folder of commandFolders) {
 }
 
 client.on(Events.InteractionCreate, async (interaction) => {
-  if (!interaction.isChatInputCommand()) return;
+  if (!interaction.isChatInputCommand()) {
+    return;
+  }
 
   const command = interaction.client.commands.get(interaction.commandName);
 
@@ -44,9 +58,11 @@ client.on(Events.InteractionCreate, async (interaction) => {
   }
 
   try {
-      await command.execute(interaction, client.ws.ping);
+    await command.execute(interaction, pb, client.ws.ping);
   } catch (error) {
-    console.error(interaction);
+    console.error(
+      `An Error occurred while executing ${interaction.command.name}\n${interaction}`
+    );
     if (interaction.replied || interaction.deferred) {
       await interaction.followUp({
         content: "There was an error while executing this command.",
@@ -59,8 +75,6 @@ client.on(Events.InteractionCreate, async (interaction) => {
       });
     }
   }
-
-  console.log(interaction);
 });
 
 client.once(Events.ClientReady, (readyClient) => {
