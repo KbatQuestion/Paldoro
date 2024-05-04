@@ -9,6 +9,7 @@ const client = new Client({
 });
 
 client.commands = new Collection();
+client.cooldowns = new Collection();
 
 const foldersPath = path.join(__dirname, "commands");
 const commandFolders = fs.readdirSync(foldersPath);
@@ -43,7 +44,7 @@ client.on(Events.InteractionCreate, async (interaction) => {
   }
 
   try {
-    await command.execute(interaction);
+      await command.execute(interaction, client.ws.ping);
   } catch (error) {
     console.error(interaction);
     if (interaction.replied || interaction.deferred) {
@@ -65,14 +66,5 @@ client.on(Events.InteractionCreate, async (interaction) => {
 client.once(Events.ClientReady, (readyClient) => {
   console.log(`Ready! Logged in as ${readyClient.user.tag}`);
 });
-
-// client.on("interactionCreate", async (interaction) => {
-//   if (!interaction.isChatInputCommand()) return;
-
-//   if (interaction.commandName === "ping") {
-//     await interaction.reply("Pong!");
-//     console.log("Ping command ran by" + interaction);
-//   }
-// });
 
 client.login(process.env.DISCORD_TOKEN);

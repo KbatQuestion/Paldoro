@@ -1,11 +1,20 @@
 const { SlashCommandBuilder } = require("discord.js");
 
 module.exports = {
+  cooldown: 1,
   data: new SlashCommandBuilder()
     .setName("ping")
-    .setDescription("Replies with Pong!"),
+    .setDescription("Replies with roundtrip latency & websocket latency"),
 
   async execute(interaction) {
-    await interaction.reply("Pong!");
+    const sent = await interaction.reply({
+      content: "Pinging...",
+      fetchReply: true,
+    });
+    interaction.editReply(
+      `API Roundtrip latency: ${
+        sent.createdTimestamp - interaction.createdTimestamp
+      }ms\nWebsocket heartbeat: ${interaction.ping}ms`
+    );
   },
 };
