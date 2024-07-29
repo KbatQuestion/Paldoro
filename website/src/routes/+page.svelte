@@ -1,10 +1,15 @@
 <script>
+import { goto } from '$app/navigation';
+
+function login_page() {
+    goto('login');
+}
 
 </script>
 
-<div class="text-sky-500 dark:text-sky-400">
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
-</div>
+<div class="text-6xl"><h1>Landing Page</h1></div>
 
-<button on:click={href = "/login"}> login Page</button>
+
+<a href="login" role="button" class="bg-slate-500 hover:bg-blue-700 text-white text-sm px-4 py-2  border rounded-full">
+    Log In
+</a>
