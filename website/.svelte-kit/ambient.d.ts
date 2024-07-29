@@ -35,8 +35,8 @@ declare module '$env/static/private' {
 	export const HISTCONTROL: string;
 	export const XDG_MENU_PREFIX: string;
 	export const TERM_PROGRAM_VERSION: string;
-	export const HOSTNAME: string;
 	export const HISTSIZE: string;
+	export const HOSTNAME: string;
 	export const NODE: string;
 	export const SSH_AUTH_SOCK: string;
 	export const MEMORY_PRESSURE_WRITE: string;
@@ -48,8 +48,8 @@ declare module '$env/static/private' {
 	export const npm_config_globalconfig: string;
 	export const EDITOR: string;
 	export const PWD: string;
-	export const XDG_SESSION_DESKTOP: string;
 	export const LOGNAME: string;
+	export const XDG_SESSION_DESKTOP: string;
 	export const XDG_SESSION_TYPE: string;
 	export const npm_config_init_module: string;
 	export const SYSTEMD_EXEC_PID: string;
@@ -57,6 +57,7 @@ declare module '$env/static/private' {
 	export const XAUTHORITY: string;
 	export const SDL_VIDEO_MINIMIZE_ON_FOCUS_LOSS: string;
 	export const VSCODE_GIT_ASKPASS_NODE: string;
+	export const GJS_DEBUG_TOPICS: string;
 	export const GDM_LANG: string;
 	export const HOME: string;
 	export const USERNAME: string;
@@ -73,6 +74,7 @@ declare module '$env/static/private' {
 	export const CHROME_DESKTOP: string;
 	export const STEAM_FRAME_FORCE_CLOSE: string;
 	export const npm_lifecycle_script: string;
+	export const GJS_DEBUG_OUTPUT: string;
 	export const VSCODE_GIT_ASKPASS_EXTRA_ARGS: string;
 	export const GNOME_SETUP_DISPLAY: string;
 	export const npm_config_npm_version: string;
@@ -105,9 +107,10 @@ declare module '$env/static/private' {
 	export const npm_config_python: string;
 	export const npm_config_global_prefix: string;
 	export const MAIL: string;
+	export const GIO_LAUNCHED_DESKTOP_FILE_PID: string;
 	export const npm_node_execpath: string;
 	export const npm_config_engine_strict: string;
-	export const OLDPWD: string;
+	export const GIO_LAUNCHED_DESKTOP_FILE: string;
 	export const TERM_PROGRAM: string;
 	export const NODE_ENV: string;
 }
@@ -150,8 +153,8 @@ declare module '$env/dynamic/private' {
 		HISTCONTROL: string;
 		XDG_MENU_PREFIX: string;
 		TERM_PROGRAM_VERSION: string;
-		HOSTNAME: string;
 		HISTSIZE: string;
+		HOSTNAME: string;
 		NODE: string;
 		SSH_AUTH_SOCK: string;
 		MEMORY_PRESSURE_WRITE: string;
@@ -163,8 +166,8 @@ declare module '$env/dynamic/private' {
 		npm_config_globalconfig: string;
 		EDITOR: string;
 		PWD: string;
-		XDG_SESSION_DESKTOP: string;
 		LOGNAME: string;
+		XDG_SESSION_DESKTOP: string;
 		XDG_SESSION_TYPE: string;
 		npm_config_init_module: string;
 		SYSTEMD_EXEC_PID: string;
@@ -172,6 +175,7 @@ declare module '$env/dynamic/private' {
 		XAUTHORITY: string;
 		SDL_VIDEO_MINIMIZE_ON_FOCUS_LOSS: string;
 		VSCODE_GIT_ASKPASS_NODE: string;
+		GJS_DEBUG_TOPICS: string;
 		GDM_LANG: string;
 		HOME: string;
 		USERNAME: string;
@@ -188,6 +192,7 @@ declare module '$env/dynamic/private' {
 		CHROME_DESKTOP: string;
 		STEAM_FRAME_FORCE_CLOSE: string;
 		npm_lifecycle_script: string;
+		GJS_DEBUG_OUTPUT: string;
 		VSCODE_GIT_ASKPASS_EXTRA_ARGS: string;
 		GNOME_SETUP_DISPLAY: string;
 		npm_config_npm_version: string;
@@ -220,9 +225,10 @@ declare module '$env/dynamic/private' {
 		npm_config_python: string;
 		npm_config_global_prefix: string;
 		MAIL: string;
+		GIO_LAUNCHED_DESKTOP_FILE_PID: string;
 		npm_node_execpath: string;
 		npm_config_engine_strict: string;
-		OLDPWD: string;
+		GIO_LAUNCHED_DESKTOP_FILE: string;
 		TERM_PROGRAM: string;
 		NODE_ENV: string;
 		[key: `PUBLIC_${string}`]: undefined;
